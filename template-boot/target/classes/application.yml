@@ -1,0 +1,64 @@
+server:
+  port: 9000
+  tomcat.uri-encoding: utf-8
+  servlet:
+    session:
+      timeout: 1800
+    context-path: /template-boot
+#共享文件(功能类型)
+spring:
+  application:
+    name: template-boot
+  aop:
+    auto: true
+  output:
+    ansi:
+      enabled: always
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/admin?useSSL=false&useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: star1314
+    #type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      validation-query: SELECT 1
+      test-on-borrow: true
+      connection-init-sqls: SET NAMES utf8mb4;
+      filter:
+        wall:
+          enabled: false
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:config/ehcache.xml
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+  resources: #这里必须使用字符串 后面的 / 必须有
+    static-locations: file:/softrun/tech/dcdy/web/chao/resource/public/
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+mybatis-plus:
+  mapper-locations: classpath*:com/template/**/xml/*Mapper.xml
+  global-config:
+    # 关闭MP3.0自带的banner
+    banner: false
+    db-config:
+    #主键类型  0:"数据库ID自增",1:"该类型为未设置主键类型", 2:"用户输入ID",3:"全局唯一ID (数字类型唯一ID)", 4:"全局唯一ID UUID",5:"字符串全局唯一ID (idWorker 的字符串表示)";
+      id-type: 4
+      # 默认数据库表下划线命名
+      table-underline: true
+  configuration:
+    map-underscore-to-camel-case: true
+    #log-impl:  com.chao.cloud.common.extra.mybatis.log.Slf4jLogImpl
+
+template:
+  shiro:
+    session-id-name: SHIRO-COOKIE
+
