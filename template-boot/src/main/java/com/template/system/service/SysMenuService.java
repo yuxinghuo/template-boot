@@ -2,8 +2,8 @@ package com.template.system.service;
 
 import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.template.model.MenuAdmin;
-import com.template.model.MenuLayuiDTO;
+import com.template.system.model.MenuAdmin;
+import com.template.system.model.MenuLayuiDTO;
 import com.template.system.entity.SysMenu;
 import org.springframework.stereotype.Service;
 

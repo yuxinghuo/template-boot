@@ -43,6 +43,8 @@ spring:
     multipart:
       max-file-size: 5MB
       max-request-size: 5MB
+  main:
+    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
 
 mybatis-plus:
   mapper-locations: classpath*:com/template/**/xml/*Mapper.xml

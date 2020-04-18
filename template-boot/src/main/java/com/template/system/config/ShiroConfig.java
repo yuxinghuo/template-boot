@@ -1,11 +1,11 @@
 package com.template.system.config;
 
-import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
-import cn.hutool.json.JSONUtil;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+
 import com.template.system.shiro.ShiroSessionListener;
 import com.template.system.shiro.ShiroUserRealm;
-import lombok.extern.slf4j.Slf4j;
-import net.sf.ehcache.CacheManager;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.SessionListener;
@@ -21,17 +21,19 @@ import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedHashMap;
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import cn.hutool.json.JSONUtil;
+import lombok.extern.slf4j.Slf4j;
+import net.sf.ehcache.CacheManager;
 
 /**
  * shiro 配置
  * @时间：2020年4月17日
  * @version 1.0.0
  */
-//@Configuration
+@Configuration
 @Slf4j
 public class ShiroConfig {
 
